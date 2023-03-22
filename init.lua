@@ -1,0 +1,3 @@
+--loader goes here
+--check game and possibly make required folders
+--add global security features too
