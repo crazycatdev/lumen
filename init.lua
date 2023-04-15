@@ -14,3 +14,5 @@ local githubConfig = game:GetService("HttpService"):JSONDecode(githubConfigEnc)
 if githubConfig.version ~= storedVersion then
     game:GetService("Players").LocalPlayer:Kick("\nOutdated version. Please visit https://lumenlua.xyz\n")
 end
+
+if not githubConfig.places[game.PlaceId] then return print("sheet") end
