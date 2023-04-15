@@ -3,14 +3,14 @@
 --add global security features too
 
 local req = request or syn.request
-local placeId = game.PlaceId
 local githubRepo = "https://raw.githubusercontent.com/crazycatdev/lumen/main/"
 local storedVersion = "prosperity.1"
-local githubVersion  = req({
+local githubConfigEnc  = req({
     Url = githubRepo .. "lumen.json",
     Method = "GET"
-})
+}).Body
+local githubConfig = game:GetService("HttpService"):JSONDecode(githubConfigEnc)
 
-if githubVersion ~= storedVersion then
-    game:GetService("Players").LocalPlayer:Kick("aaaaa")
+if githubConfig.version ~= storedVersion then
+    game:GetService("Players").LocalPlayer:Kick("\nOutdated version. Please visit https://lumenlua.xyz\n")
 end
